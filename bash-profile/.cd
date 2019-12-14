@@ -1,0 +1,19 @@
+alias cd='mycd'
+
+function mycd {
+	arg=$1
+	while [[ `echo $arg|grep -c '\.\.\.'` = 1  ]]
+	do
+		arg=`echo $arg | sed -e "s/\.\.\./..\/../g"`
+	done
+	echo Calculated Path: $arg
+	if [[ -z $arg ]]; then 
+		builtin cd
+	else
+		builtin cd "$arg" 
+	fi
+}
+
+function up {
+    cd `expr "$PWD" : "^\(.*$1[^/]*\)"`
+}

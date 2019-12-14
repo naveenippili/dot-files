@@ -1,0 +1,28 @@
+### Jumping functions
+
+export MARKPATH=$HOME/.marks
+
+function jump {
+    cd -P "$MARKPATH/$1" 2>/dev/null || echo "No such mark : $1"
+}
+function jump1 {
+    echo jumping to `ls -l "$MARKPATH/$1"` && cd -P "$MARKPATH/$1" 2>/dev/null
+}
+function mark {
+    mkdir -p "$MARKPATH"; ln -s "$(pwd)" "$MARKPATH/$1"
+}
+function unmark {
+    rm -i "$MARKPATH/$1"
+}
+function marks {
+    ls -l "$MARKPATH" | sed 's/  / /g' | cut -d' ' -f9- | sed 's/ -/\t-/g' && echo
+}
+
+### Adding jump shortcuts to auto completion
+
+function _completemarks {
+  COMPREPLY=($(ls $MARKPATH))
+}
+
+complete -F _completemarks jump
+complete -F _completemarks unmark

@@ -1,0 +1,9 @@
+[user]
+	name = Naveen Kumar Ippili
+	email = navee1292@gmail.com
+[color]
+	ui = true
+[alias]
+	tree = log --graph --pretty=format:\"%Cred%h%Creset - %Cgreen(%cr) %C(bold blue)<%an>%Creset %C(yellow)%d%Creset %s\" --abbrev-commit --date=relative
+[push]
+	default = simple

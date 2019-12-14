@@ -1,0 +1,15 @@
+alias la='ls -a'
+alias ll='ls -al'
+alias gs='git status'
+alias gb='git branch'
+alias sublime='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
+
+alias cycles='ioreg -l | grep Cycle'
+export desktop='navn.svl.corp.google.com'
+
+
+## source file linking
+# source $HOME/.powershell
+source $HOME/.custom
+source $HOME/.cd
+source $HOME/.mark
